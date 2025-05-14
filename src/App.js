@@ -1,16 +1,28 @@
 import './App.css';
+import Home from './Component/Home';
 
-import MyHead from './Component/MyHead';
-import ProductList from './Component/Product/List';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProductDetail from './Component/Product/Detail';
 
 
 function App() {
   return (
-    <div className="App">
+    <Router>
 
-      <MyHead heading="My Front End Test" desc="Resize this responsive page to see the effect!" />
-      <ProductList/>     
-    </div>
+      <div className="App">
+
+
+        <Routes>      
+          
+            <Route path="/" element={<Home/>} />
+            <Route path="/product-details" element={<ProductDetail/>} />
+            
+        </Routes>
+    
+      </div>
+
+    </Router>
+
   );
 }
 

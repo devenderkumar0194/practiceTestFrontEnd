@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProductCard = (props) => {
     
     return <>
@@ -12,7 +14,7 @@ const ProductCard = (props) => {
                 </div>
 
                 <div className="prod-pay my-2">
-                 <a href="/" className="btn btn-primary">{props.product.price}</a>
+                 <Link to="/product-details" state={{ product : props.product }} className="btn btn-primary">{props.product.price}</Link>
                 </div>
 
             </div>

@@ -20,3 +20,23 @@
 
 }
 
+.prod-details {
+    text-align:  center;
+}
+
+.prod-details form {
+    width: 50%;
+}
+.prod-details form label {
+    float: left;
+    margin-top: 2px;
+}
+
+.prod-details form .form-group div {
+    float: left;
+    margin-bottom: 2px;
+}
+
+.prod-details form .form-group {
+    min-height : 100px;
+}
