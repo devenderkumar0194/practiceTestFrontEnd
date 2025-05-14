@@ -1,0 +1,22 @@
+.prod-card {
+    height: 400px;
+    padding: 5px;
+}
+
+.prod-card .prod-inner{
+    
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+.prod-img {
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.prod-img img {
+    objectFit: cover;  
+
+}
+
