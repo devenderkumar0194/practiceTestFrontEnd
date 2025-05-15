@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import Cookies from 'js-cookie';
+import Axios_Api from './Axios_Api';
 
 const AuthContext = createContext();
 
@@ -12,15 +12,21 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({}); // null means not logged in
     const [isAuthenticated , setIsAuthenticated] = useState(false);
 
-    const token = Cookies.get('token');
-    const checkToken = () => {
+    const checkUserIsAuthenticated = async () => {
   
-        console.log("token ", user, token);
-        
+       const res =  await Axios_Api.getUserDetails();
+
+       if(res.status === 200){
+          setUser(res.data);
+          setIsAuthenticated(true);
+       }else{
+          setUser({});
+          setIsAuthenticated(false);
+       }
     }
 
     useEffect(()=>{
-      checkToken();
+      checkUserIsAuthenticated();
     } ,[ isAuthenticated, user]);
 
   return (

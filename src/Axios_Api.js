@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const baseURL = 'http://localhost:5000/api'; 
 
@@ -38,6 +39,39 @@ const login = async (email, password) => {
 }
 
 
-const obj = {getProduct, login};
+const getUserDetails  = async () => {
+    
+    const token = Cookies.get('token');
+    const obj =  {
+
+    }
+    
+    try {
+
+        const res = await axios.get(baseURL+'/user-detiails', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+            });
+
+        return res.data;
+
+    } catch (err) {
+        if(err.response.status === 409){
+            return err.response.data;
+        }
+    }
+
+}
+
+const logout = async () => {
+
+    Cookies.remove('token');
+    const res =  await axios.get(baseURL+'/logout', {}, { withCredentials: true });
+    return res.data;    
+}
+
+
+const obj = {getProduct, login, getUserDetails, logout};
 
 export default obj;
