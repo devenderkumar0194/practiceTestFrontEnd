@@ -5,7 +5,6 @@ import MyHead from "../MyHead";
 const Dashboard = () => {
     const navigate = useNavigate();
     const { isAuthenticated} = useAuth();
-    console.log(isAuthenticated);
     
     if(!isAuthenticated){
         navigate('/login');

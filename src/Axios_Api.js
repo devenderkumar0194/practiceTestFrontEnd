@@ -69,6 +69,24 @@ const logout = async () => {
 }
 
 
-const obj = {getProduct, login, getUserDetails, logout};
+const updateProfile = async (formData) => {
+    
+        
+        const token = Cookies.get('token');
+
+        const response = await axios.post(baseURL+'/update-profile', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${token}`
+
+          },
+        });
+
+
+
+
+} 
+
+const obj = {getProduct, login, getUserDetails, logout, updateProfile};
 
 export default obj;

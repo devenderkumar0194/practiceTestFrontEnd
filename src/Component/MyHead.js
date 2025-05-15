@@ -38,7 +38,7 @@ const MyHead = (props) => {
                 
             </ul>
             
-            {isAuthenticated && (<h4>{user.name}</h4>) }
+            {isAuthenticated && (<Link className="badge rounded-pill bg-warning" to="/profile" state={{ user : user }} ><h4>{user.name}</h4></Link>) }
 
       </div>
     </>);

@@ -6,6 +6,7 @@ import ProductDetail from './Component/Product/Detail';
 import LoginPage from './Component/User/Login';
 import Dashboard from './Component/Dashboad/Dashboad';
 import {AuthProvider } from './AuthContext';
+import Profile from './Component/User/Profile';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
 
                   {/* Private route */}
                   <Route path="/dashboard" element={<Dashboard />} />
-                  {/* <Route path="/profile" element={<Profile />} /> */}
+                  <Route path="/profile" element={<Profile/>} />
 
               </Routes>
             </div>
