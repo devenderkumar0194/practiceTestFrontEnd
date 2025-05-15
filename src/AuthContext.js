@@ -11,26 +11,33 @@ export const AuthProvider = ({ children }) => {
     
     const [user, setUser] = useState({}); // null means not logged in
     const [isAuthenticated , setIsAuthenticated] = useState(false);
+    const [isloading , setIsloagin ] = useState(true);
 
     const checkUserIsAuthenticated = async () => {
-  
+
        const res =  await Axios_Api.getUserDetails();
 
        if(res.status === 200){
+          console.log("111");
+
           setUser(res.data);
           setIsAuthenticated(true);
        }else{
+
           setUser({});
           setIsAuthenticated(false);
+
        }
+
+       setIsloagin(false);
     }
 
     useEffect(()=>{
       checkUserIsAuthenticated();
-    } ,[ isAuthenticated, user]);
+    } ,[isAuthenticated]);
 
   return (
-  <AuthContext.Provider value={{ isAuthenticated,setIsAuthenticated, user,setUser  }}>
+  <AuthContext.Provider value={{ isAuthenticated,setIsAuthenticated, user,setUser, isloading , setIsloagin  }}>
       {children}
     </AuthContext.Provider>
   );

@@ -42,9 +42,6 @@ const login = async (email, password) => {
 const getUserDetails  = async () => {
     
     const token = Cookies.get('token');
-    const obj =  {
-
-    }
     
     try {
 

@@ -12,7 +12,7 @@ const LoginPage = () => {
     const [ error , setError] = useState("");
     const navigate = useNavigate();
 
-    const {user, setUser} = useAuth();
+    const { setIsAuthenticated} = useAuth();
     
     const initialValues = {
         email: '',
@@ -41,7 +41,6 @@ const LoginPage = () => {
         }),
         onSubmit: async (values) => {
 
-
             // console.log(values.email);
 
            const data =  await Axios_Api.login(values.email, values.password);
@@ -54,8 +53,9 @@ const LoginPage = () => {
                 const token = data.data;
                 Cookies.set('token', token, { expires: 1 });
             
-                setUser();
 
+                setIsAuthenticated(true);
+                
                 navigate('/dashboard');
             }
             // Submit to API or other logic
