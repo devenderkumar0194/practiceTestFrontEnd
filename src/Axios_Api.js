@@ -1,24 +1,21 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 const baseURL = 'http://localhost:5000/api'; 
 
-const getProduct = async () => {
-    const products  = await axios.get(baseURL+'/product-list');
-    return products.data;
+const getTrns = async () => {
+    
+    const res  = await axios.get(baseURL+'/trns-list');
+    return res.data;
+
 }
 
-const login = async (email, password) => {
-
-    const obj =  {
-      email: email,
-      password: password
-    }
+const addTrns = async (obj) => {
     
     try {
 
         const res = await axios.post(
-        baseURL+'/login',
+        baseURL+'/add-trns',
         obj,
         {
             headers: {
@@ -31,59 +28,14 @@ const login = async (email, password) => {
         return res.data;
 
     } catch (err) {
-
         if(err.response.status === 409){
             return err.response.data;
         }
     }
-}
-
-
-const getUserDetails  = async () => {
     
-    const token = Cookies.get('token');
-    
-    try {
-
-        const res = await axios.get(baseURL+'/user-detiails', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-            });
-
-        return res.data;
-
-    } catch (err) {
-        if(err.response.status === 409){
-            return err.response.data;
-        }
-    }
-
-}
-
-const logout = async () => {
-
-    Cookies.remove('token');
-    const res =  await axios.get(baseURL+'/logout', {}, { withCredentials: true });
-    return res.data;    
 }
 
 
-const updateProfile = async (formData) => {
-        
-        const token = Cookies.get('token');
-
-        const res = await axios.post(baseURL+'/update-profile', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${token}`
-          },
-        });
-
-        return res.data;    
-
-} 
-
-const obj = {getProduct, login, getUserDetails, logout, updateProfile};
+const obj = { getTrns, addTrns};
 
 export default obj;

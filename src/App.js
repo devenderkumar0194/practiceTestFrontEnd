@@ -1,34 +1,22 @@
 import './App.css';
-import Home from './Component/Home';
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductDetail from './Component/Product/Detail';
-import LoginPage from './Component/User/Login';
-import Dashboard from './Component/Dashboad/Dashboad';
-import {AuthProvider } from './AuthContext';
-import Profile from './Component/User/Profile';
 
+import TransList from './Component/Transaction/List';
+import AddTrans from './Component/Transaction/AddTrans';
 
 function App() {
 
   return (
     <Router>
-       <AuthProvider>
           <div className="App">
-              
               <Routes>      
-                
-                  <Route path="/" element={<Home/>} />                  
-                  <Route path="/product-details" element={<ProductDetail/>} />
-                  <Route path="/login" element={<LoginPage/>} />
+                  <Route path="/" element={<TransList/>} />   
 
-                  {/* Private route */}
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/profile" element={<Profile/>} />
+                  <Route path="/add-trans" element={<AddTrans/>} />   
 
+                                 
               </Routes>
             </div>
-       </AuthProvider>
     </Router>
 
   );
