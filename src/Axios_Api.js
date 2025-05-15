@@ -34,7 +34,7 @@ const login = async (email, password) => {
 
     } catch (err) {
 
-        if(err.response.status == 409){
+        if(err.response.status === 409){
             return err.response.data;
         }
     }

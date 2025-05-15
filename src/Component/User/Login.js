@@ -43,7 +43,7 @@ const LoginPage = () => {
 
            const data =  await Axios_Api.login(values.email, values.password);
 
-           if(data.status == "error"){
+           if(data.status === "error"){
                 setError(data.message);
            }else{
                 setError("");
@@ -65,8 +65,8 @@ const LoginPage = () => {
     return <>
         <MyHead heading="Login" desc="Resize this responsive page to see the effect!" />
 
-         <div class="container mt-5">
-            <div class="row">
+         <div className="container mt-5">
+            <div className="row">
 
                 {error}
 

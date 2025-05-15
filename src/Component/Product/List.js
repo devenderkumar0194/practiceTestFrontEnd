@@ -27,8 +27,8 @@ const ProductList = () => {
 
 
     return (<>
-        <div class="container mt-5">
-            <div class="row">
+        <div className="container mt-5">
+            <div className="row">
 
                 {products.map((prod) => (
                     <ProductCard product={prod}/>

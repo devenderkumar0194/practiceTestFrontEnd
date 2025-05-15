@@ -32,7 +32,7 @@ const Product = (props) => {
 
     return <>
 
-            <div class="container mt-5">
+            <div className="container mt-5">
                 <div className="row prod-details">
                         <form onSubmit={formik.handleSubmit}>
                         <div className='form-group'>
