@@ -70,20 +70,17 @@ const logout = async () => {
 
 
 const updateProfile = async (formData) => {
-    
         
         const token = Cookies.get('token');
 
-        const response = await axios.post(baseURL+'/update-profile', formData, {
+        const res = await axios.post(baseURL+'/update-profile', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${token}`
-
           },
         });
 
-
-
+        return res.data;    
 
 } 
 

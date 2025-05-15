@@ -143,7 +143,6 @@ const Profile = () => {
                                 name="image"
                                 onChange={formik.handleChange}
                                 onBlur={formik.handleBlur}
-                                value={formik.values.image}
                                 />
                                 {formik.touched.image && formik.errors.image && (
                                 <div style={{ color: 'red' }}>{formik.errors.image}</div>
