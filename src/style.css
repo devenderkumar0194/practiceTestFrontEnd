@@ -24,19 +24,33 @@
     text-align:  center;
 }
 
-.prod-details form {
+form {
     width: 50%;
 }
-.prod-details form label {
+form label {
     float: left;
     margin-top: 2px;
 }
 
-.prod-details form .form-group div {
+form .form-group div {
     float: left;
     margin-bottom: 2px;
 }
 
-.prod-details form .form-group {
+form .form-group {
     min-height : 100px;
 }
+
+.nav-bar {
+
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.nav-bar li {
+    margin-left: 2px;   
+    margin-right: 2px;
+}
+
