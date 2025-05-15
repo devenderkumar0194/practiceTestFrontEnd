@@ -5,12 +5,15 @@ import Axios_Api from "../../Axios_Api";
 import { useState } from "react";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../AuthContext";
 
 const LoginPage = () => {
 
     const [ error , setError] = useState("");
     const navigate = useNavigate();
 
+    const {user, setUser} = useAuth();
+    
     const initialValues = {
         email: '',
         password: ""
@@ -51,11 +54,10 @@ const LoginPage = () => {
                 const token = data.data;
                 Cookies.set('token', token, { expires: 1 });
             
-                navigate('/dashboard');
-                
-            }
+                setUser();
 
-           
+                navigate('/dashboard');
+            }
             // Submit to API or other logic
         }
       });

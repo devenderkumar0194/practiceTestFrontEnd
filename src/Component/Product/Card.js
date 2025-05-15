@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ProductCard = (props) => {
     
     return <>
-        <div className="col-sm-4 prod-card">
+        <div id={`product_${props.id}`} className="col-sm-4 prod-card">
             <div className="prod-inner">
                 <h3>{props.product.name}</h3>
                 <p>Lorem ipsum dolor sit amet</p>

@@ -30,8 +30,8 @@ const ProductList = () => {
         <div className="container mt-5">
             <div className="row">
 
-                {products.map((prod) => (
-                    <ProductCard product={prod}/>
+                {products.map((prod, index) => (
+                    <ProductCard key={index} product={prod}/>
                 ))}
                 
             </div>

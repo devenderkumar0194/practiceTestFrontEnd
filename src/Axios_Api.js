@@ -13,9 +13,7 @@ const login = async (email, password) => {
       email: email,
       password: password
     }
-
     
-
     try {
 
         const res = await axios.post(
@@ -30,7 +28,6 @@ const login = async (email, password) => {
         );
 
         return res.data;
-
 
     } catch (err) {
 
